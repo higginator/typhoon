@@ -3,6 +3,10 @@
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+#Twitter Authentication
+CONSUMER_TOKEN = 'FnQiwG9m6Qk4ttwhe8dUxA'
+CONSUMER_SECRET = 'BKMmlxWO0h35oXEb3gR7honrDcWXZGIcEQuEBp8sxv8'
+
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
@@ -11,8 +15,8 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '',                      # Or path to database file if using sqlite3.
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'typhoon.db',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': '',
         'PASSWORD': '',
@@ -111,6 +115,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    "typhoon/templates",
 )
 
 INSTALLED_APPS = (
