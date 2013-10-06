@@ -47,7 +47,7 @@ def get_tweets_with_links(auth):
 	n=0
 	page_list = []
 
-	for page in tweepy.Cursor(api.user_timeline, count=20).pages(10):
+	for page in tweepy.Cursor(api.home_timeline, count=20).pages(10):
 	    page_list.append(page)
 
 	tweets_list = []
