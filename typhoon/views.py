@@ -3,6 +3,7 @@ from django.shortcuts import render_to_response, redirect
 from django.template import Context
 from settings import CONSUMER_TOKEN, CONSUMER_SECRET
 import tweepy
+from utils import is_news, get_links
 
 """
 	def testing_settings_import(request):
