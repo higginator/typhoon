@@ -1,0 +1,11 @@
+Django==1.5.4
+tweepy==2.1
+oauth2==1.5.211
+requests-oauthlib==0.3.3
+simplejson==3.3.0
+beautifulsoup4==4.3.2
+Pillow
+lxml
+cssselect
+jieba
+nltk
