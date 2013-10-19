@@ -37,6 +37,10 @@
 
 		button:hover { background: #0070AA;}
 
+		.items_row {
+			border: 1px solid green;
+			margin-bottom: 15px;
+		}
 		</style>
 	</head>
 	<body>
@@ -54,10 +58,14 @@
 			<button>bunker</button>
 			<button>profile</button>
 		</nav>
-		<ul>
-		{% for link in links_list %}
-			<li>{{ link }}</li>
-		{% endfor %}
-		</ul>
+		{% load list_to_columns %}
+		{% list_to_columns links_list as new_links_list 5 %}
+			{% for link_trio in new_links_list %}
+				<div class='items_row'>
+					{% for link in link_trio %}
+						<div class='items'> {{ link }}</div>
+					{% endfor %}
+				</div>
+			{% endfor %}
 	</body>
 </html>
