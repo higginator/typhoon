@@ -3,6 +3,7 @@ from django.shortcuts import render_to_response, redirect
 from django.template import Context
 from settings import CONSUMER_TOKEN, CONSUMER_SECRET
 import tweepy
+from typhoon.utils import *
 
 """
 	def testing_settings_import(request):
@@ -20,7 +21,8 @@ def verification(request):
 	try:
 		verifier = request.GET.get('oauth_verifier')
 		auth.get_access_token(verifier)
-		return get_tweets_with_links(auth)
+		links_list = get_links(auth)
+		return render_to_response('mockup_3.html', Context({'links_list': links_list}))
 	except tweepy.TweepError:
 		return HttpResponse('Error! Failed to get access token.')
 
@@ -40,28 +42,3 @@ def home(request):
 		return HttpResponse('Error! Failed to get request token.')
 
 	return redirect(redirect_url)
-
-def get_tweets_with_links(auth):
-	api = tweepy.API(auth)
-
-	n=0
-	page_list = []
-
-	for page in tweepy.Cursor(api.user_timeline, count=20).pages(10):
-	    page_list.append(page)
-
-	tweets_list = []
-
-	for page in page_list:
-	    for status in page:
-	       tweets_list.append(status.text)
-
-	links_list = []
-	for elem in tweets_list:
-	    if ('t.co' in elem):
-	        links_list.append(elem)
-
-	#print links_list
-	#return HttpResponse(links_list)
-	return render_to_response('typhoon_mockup.html', Context({'links_list': links_list}))
-

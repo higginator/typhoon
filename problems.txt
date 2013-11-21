@@ -1,0 +1,14 @@
+Notes:
+	new function is_news_and_data passes title/metadata
+	typhoon_data directory will hold our models when we need to create them (user with attrs bunker, etc)
+	typhoon_data/static are where static files should go (css/js)
+	Run out of access tokens very quickly...This can be a problem...
+		-Will need to save users articles as they make requests
+		-Will need to timestamp there last request, so we don't query past that again, using up our access tokens
+		-Important, will need more thought
+
+To do:
+	is_news_and_data is too slow, look into other parsing libraries (essential)
+	separate css from html
+	get html pages to load all static files (typhoon_data/static)
+		-would like to see javascript files being read by the home page
